@@ -41,6 +41,9 @@
 		"sudo yum install -y java-11-openjdk",
 		"sudo systemctl start httpd",
 		"sudo systemctl enable httpd"
+		"sudo yum install -y mariadb-server",
+		"sudo systemctl start mariadb",
+		"sudo systemctl enable mariadb"
             ]
         }
     ]
