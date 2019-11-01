@@ -21,7 +21,8 @@ jobs:
             chmod +x packer
       - run:
           name: Validate Packer Template
-          command: ./packer validate \
+          command: |
+            ./packer validate \
             -var "aws_access_key=${AWS_ACCESS_KEY_ID}" \
             -var "aws_region=${AWS_REGION}" \
             -var "aws_secret_key=${AWS_SECRET_ACCESS_KEY}" \
