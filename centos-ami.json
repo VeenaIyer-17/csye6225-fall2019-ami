@@ -15,7 +15,7 @@
             "region": "{{user `aws_region`}}",
             "instance_type": "t2.micro",
             "subnet_id": "{{user `subnet_id`}}",
-            "source_ami": "{{user `source_ami`}}",
+            "source_ami": "{{user `aws_source_ami`}}",
             "ssh_username": "{{user `ssh_username`}}",
             "ami_name": "csye6225_{{timestamp}}",
             "ami_description": "Centos AMI with Apache and MariaDB",
