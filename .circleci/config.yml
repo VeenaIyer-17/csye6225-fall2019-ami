@@ -22,19 +22,19 @@ jobs:
       - run:
           name: Validate Packer Template
           command: ./packer validate \
-            -var "aws_region=${AWS_REGION}" \
-            -var "subnet_id=${AWS_SUBNET_ID}" \
             -var "aws_access_key=${AWS_ACCESS_KEY_ID}" \
+            -var "aws_region=${AWS_REGION}" \
             -var "aws_secret_key=${AWS_SECRET_ACCESS_KEY}" \
             -var "aws_source_ami=${AWS_SOURCE_AMI}" \
+            -var "subnet_id=${AWS_SUBNET_ID}" \
             centos-ami.json
       - run:
           name: Build AMI
           command: |
             ./packer build \
-            -var "aws_region=${AWS_REGION}" \
-            -var "subnet_id=${AWS_SUBNET_ID}" \
             -var "aws_access_key=${AWS_ACCESS_KEY_ID}" \
+            -var "aws_region=${AWS_REGION}" \
             -var "aws_secret_key=${AWS_SECRET_ACCESS_KEY}" \
             -var "aws_source_ami=${AWS_SOURCE_AMI}" \
+            -var "subnet_id=${AWS_SUBNET_ID}" \
             centos-ami.json
