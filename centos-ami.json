@@ -38,12 +38,26 @@
             "inline": [
                 "sudo yum -y update",
                 "sudo yum install -y httpd",
-		"sudo yum install -y java-11-openjdk",
-		"sudo systemctl start httpd",
-		"sudo systemctl enable httpd",
-		"sudo yum install -y mariadb-server",
-		"sudo systemctl start mariadb",
-		"sudo systemctl enable mariadb"
+		        "sudo yum install -y java-11-openjdk",
+                "sudo yum install -y ruby",
+                "sudo yum install -y wget",
+		        "sudo systemctl start httpd",
+		        "sudo systemctl enable httpd",
+                "sudo wget https://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.27/bin/apache-tomcat-9.0.27.tar.gz",
+                "sudo tar -zxpvf apache-tomcat-9.0.27.tar.gz -C /opt/",
+                "echo \"export CATALINA_HOME='/opt/apache-tomcat-9.0.27/'\" >> ~/.bashrc",
+                "source ~/.bashrc",
+                "sudo /opt/apache-tomcat-9.0.27/bin/./startup.sh",
+		        "sudo yum install -y mariadb-server",
+		        "sudo systemctl start mariadb",
+		        "sudo systemctl enable mariadb",
+                "cd /home/centos",
+                "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install",
+                "chmod +x ./install",
+                "sudo ./install auto",
+                "sudo service codedeploy-agent start",
+                "wget https://s3.amazonaws.com/amazoncloudwatch-agent/centos/amd64/latest/amazon-cloudwatch-agent.rpm",
+                "sudo rpm -U ./amazon-cloudwatch-agent.rpm"
             ]
         }
     ]

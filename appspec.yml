@@ -1,0 +1,10 @@
+version: 0.0
+os: centos
+files:
+  - source: ./cloudwatch-config.json
+    destination: /opt/
+hooks:
+  AfterInstall:
+    - location: ./afterInstall.sh
+      timeout: 180
+      runas:  centos
