@@ -47,7 +47,6 @@
                 "sudo tar -zxpvf apache-tomcat-9.0.27.tar.gz -C /opt/",
                 "echo \"export CATALINA_HOME='/opt/apache-tomcat-9.0.27/'\" >> ~/.bashrc",
                 "source ~/.bashrc",
-                "sudo /opt/apache-tomcat-9.0.27/bin/./startup.sh",
 		        "sudo yum install -y mariadb-server",
 		        "sudo systemctl start mariadb",
 		        "sudo systemctl enable mariadb",
@@ -56,6 +55,7 @@
                 "chmod +x ./install",
                 "sudo ./install auto",
                 "sudo service codedeploy-agent start",
+                "sudo /opt/apache-tomcat-9.0.27/bin/./startup.sh",
                 "wget https://s3.amazonaws.com/amazoncloudwatch-agent/centos/amd64/latest/amazon-cloudwatch-agent.rpm",
                 "sudo rpm -U ./amazon-cloudwatch-agent.rpm"
             ]
