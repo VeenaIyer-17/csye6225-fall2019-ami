@@ -17,15 +17,15 @@ sudo useradd -s /bin/nologin -g tomcat -d /opt/tomcat tomcat
 sudo yum -y -q install wget
 
 cd ~
-wget -q http://apache.mirrors.pair.com/tomcat/tomcat-9/v9.0.21/bin/apache-tomcat-9.0.21.tar.gz
-tar -zxf apache-tomcat-9.0.21.tar.gz
-sudo chmod +x apache-tomcat-9.0.21/bin/*.bat
-sudo rm -f apache-tomcat-9.0.21/bin/*.bat
-sudo ls -l apache-tomcat-9.0.21/bin
-sudo mv apache-tomcat-9.0.21/* /opt/tomcat/
-# sudo tar -zxvf apache-tomcat-9.0.21.tar.gz -C /opt/tomcat --strip-components=1
-sudo rm -rf apache-tomcat-9.0.21
-sudo rm -rf apache-tomcat-9.0.21.tar.gz
+wget -q wget https://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.27/bin/apache-tomcat-9.0.27.tar.gz
+tar -zxf apache-tomcat-9.0.27.tar.gz
+sudo chmod +x apache-tomcat-9.0.27/bin/*.bat
+sudo rm -f apache-tomcat-9.0.27/bin/*.bat
+sudo ls -l apache-tomcat-9.0.27/bin
+sudo mv apache-tomcat-9.0.27/* /opt/tomcat/
+# sudo tar -zxvf apache-tomcat-9.0.27.tar.gz -C /opt/tomcat --strip-components=1
+#sudo rm -rf apache-tomcat-9.0.27
+#sudo rm -rf apache-tomcat-9.0.27.tar.gz
 
 # setting permission for tomcat
 cd /opt/tomcat
