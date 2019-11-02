@@ -13,12 +13,15 @@
             "access_key": "{{user `aws_access_key`}}",
             "secret_key": "{{user `aws_secret_key`}}",
             "region": "{{user `aws_region`}}",
-            "instance_type": "t2.micro",
             "subnet_id": "{{user `subnet_id`}}",
+
             "source_ami": "{{user `aws_source_ami`}}",
+            "instance_type": "t2.micro",
             "ssh_username": "{{user `ssh_username`}}",
+            "ssh_private_key_file": "{{user `~/.ssh/csye6225`}}",
+
             "ami_name": "csye6225_{{timestamp}}",
-            "ami_description": "Centos AMI with Apache and MariaDB",
+            "ami_description": "Centos AMI for CSYE 6225",
             "launch_block_device_mappings": [
                 {
                     "device_name": "/dev/sda1",
@@ -26,39 +29,20 @@
                     "volume_type": "gp2",
                     "delete_on_termination": true
                 }
-            ]
+            ],
+            "tags": {
+                "Name": "EC2-AMI-{{isotime  | clean_ami_name}}",
+                "OS_Version": "Centos"
+            }
         }
     ],
     "provisioners": [
         {
             "type": "shell",
-	    "environment_vars": [
+	        "environment_vars": [
                 "FOO=foo"
-            ],           
-            "inline": [
-                "sudo yum -y update",
-                "sudo yum install -y httpd",
-		        "sudo yum install -y java-11-openjdk",
-                "sudo yum install -y ruby",
-                "sudo yum install -y wget",
-                "sudo yum install -y mariadb-server",
-		        "sudo systemctl start httpd",
-                "sudo systemctl enable httpd",
-                "sudo systemctl start mariadb",
-		        "sudo systemctl enable mariadb",
-                "sudo wget https://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.27/bin/apache-tomcat-9.0.27.tar.gz",
-                "sudo tar -zxpvf apache-tomcat-9.0.27.tar.gz -C /opt/",
-                "echo \"export CATALINA_HOME='/opt/apache-tomcat-9.0.27/'\" >> ~/.bashrc",
-                "source ~/.bashrc",
-                "cd /home/centos",
-                "wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install",
-                "chmod +x ./install",
-                "sudo ./install auto",
-                "sudo service codedeploy-agent start",
-                "sudo /opt/apache-tomcat-9.0.27/bin/./startup.sh",
-                "wget https://s3.amazonaws.com/amazoncloudwatch-agent/centos/amd64/latest/amazon-cloudwatch-agent.rpm",
-                "sudo rpm -U ./amazon-cloudwatch-agent.rpm"
-            ]
+            ],
+            "script": "inlineprovisioner.sh" 
         }
     ]
 }
