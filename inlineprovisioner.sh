@@ -13,7 +13,6 @@ sudo systemctl enable mariadb
 sudo groupadd tomcat
 sudo mkdir /opt/tomcat
 sudo useradd -s /bin/nologin -g tomcat -d /opt/tomcat tomcat
-
 sudo yum -y -q install wget
 
 cd ~
