@@ -40,51 +40,13 @@ sudo chgrp -R tomcat lib
 sudo chmod g+rwx bin
 sudo chmod -R g+r bin
 
-# Tomcat Service File
-echo -e "[Unit]
-Description=Apache Tomcat Web Application Container
-Wants=syslog.target network.target
-After=syslog.target network.target
-[Service]
-Type=forking
-SuccessExitStatus=143
-Environment=JAVA_HOME=$JAVA_HOME
-Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
-Environment=CATALINA_HOME=/opt/tomcat
-Environment=CATALINA_BASE=/opt/tomcat
-Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
-Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
-WorkingDirectory=/opt/tomcat
-ExecStart=/opt/tomcat/bin/startup.sh
-ExecStop=/bin/kill -15 \$MAINPID
-User=tomcat
-Group=tomcat
-UMask=0007
-RestartSec=10
-Restart=always
-[Install]
-WantedBy=multi-user.target" | sudo tee -a /etc/systemd/system/tomcat.service
-sudo systemctl daemon-reload
-sudo systemctl enable tomcat.service
-
-sudo sed -i '$ d' /opt/tomcat/conf/tomcat-users.xml
-sudo echo -e "\t<role rolename=\"manager-gui\"/>
-\t<user username=\"manager\" password=\"manager\" roles=\"manager-gui\"/>
-</tomcat-users>" | sudo tee -a /opt/tomcat/conf/tomcat-users.xml
-sudo systemctl restart tomcat.service
-
-sudo systemctl stop tomcat.service
-sudo systemctl status tomcat.service
-
 sudo su
 sudo chmod -R 777 webapps
 sudo chmod -R 777 work
-sudo rm -rf /opt/tomcat/webapps/*
-sudo rm -rf /opt/tomcat/work/*
-sudo ls /opt/tomcat/webapps
 
-sudo systemctl start tomcat.service
-sudo systemctl status tomcat.service
+echo "export CATALINA_HOME='/opt/tomcat/'" >> ~/.bashrc
+
+sudo chmod -r 777 /opt/tomcat
 
 #CodeDeploy               
 cd ~
@@ -115,6 +77,15 @@ cat > cloudwatch-config.json << EOF
             }
         },
         "log_stream_name": "cloudwatch_log_stream"
+    },
+    "metrics": {
+        "metrics_collected": {
+            "statsd": {
+                "service_address":":8125",
+                "metrics_collection_interval":60,
+                "metrics_aggregation_interval":60
+            }
+        }
     }
 }
 EOF
