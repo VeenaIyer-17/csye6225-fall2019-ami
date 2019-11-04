@@ -67,7 +67,7 @@ cat > cloudwatch-config.json << EOF
                     {
                         "file_path": "/opt/tomcat/logs/csye6225.log",
                         "log_group_name": "csye6225_fall2019",
-                        "log_stream_name": "webapp",
+                        "log_stream_name": "webapp"
                     }
                 ]
             }
