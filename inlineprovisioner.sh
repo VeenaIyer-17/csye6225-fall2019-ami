@@ -22,9 +22,6 @@ sudo chmod +x apache-tomcat-9.0.27/bin/*.bat
 sudo rm -f apache-tomcat-9.0.27/bin/*.bat
 sudo ls -l apache-tomcat-9.0.27/bin
 sudo mv apache-tomcat-9.0.27/* /opt/tomcat/
-# sudo tar -zxvf apache-tomcat-9.0.27.tar.gz -C /opt/tomcat --strip-components=1
-#sudo rm -rf apache-tomcat-9.0.27
-#sudo rm -rf apache-tomcat-9.0.27.tar.gz
 
 # setting permission for tomcat
 cd /opt/tomcat
