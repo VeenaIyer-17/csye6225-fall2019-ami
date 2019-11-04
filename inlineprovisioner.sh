@@ -42,7 +42,7 @@ sudo chmod -R 777 work
 
 echo "export CATALINA_HOME='/opt/tomcat/'" >> ~/.bashrc
 
-sudo chmod -r 777 /opt/tomcat
+sudo chmod -R 777 /opt/tomcat
 
 #CodeDeploy               
 cd ~
