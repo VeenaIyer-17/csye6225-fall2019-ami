@@ -102,7 +102,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
     -s
 sudo systemctl status amazon-cloudwatch-agent.service
 
-cd ~
-sudo wget https://s3.amazonaws.com/configfileforcloudwatch/amazon-cloudwatch-agent.service
-sudo cp amazon-cloudwatch-agent.service /etc/systemd/system/
-sudo systemctl enable amazon-cloudwatch-agent
+# cd ~
+# sudo wget https://s3.amazonaws.com/configfileforcloudwatch/amazon-cloudwatch-agent.service
+# sudo cp amazon-cloudwatch-agent.service /etc/systemd/system/
+# sudo systemctl enable amazon-cloudwatch-agent
