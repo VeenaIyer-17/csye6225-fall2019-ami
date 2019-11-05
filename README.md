@@ -44,5 +44,7 @@ technology used to automate building of Amazon Images.
     * Run the war file in your instance using
        `java -jar warFile.war`
     * Use any REST tool like Postman to hit the enpoints of the application using the instance IP address
+
+    ami
     
 
