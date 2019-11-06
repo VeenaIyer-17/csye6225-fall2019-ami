@@ -14,12 +14,12 @@
 The Amazon Machine Images being built here uses Packer. Packer is a Hashicorp 
 technology used to automate building of Amazon Images.
 
-### Build Instructions
+## Build Instructions
     * Install Packer using - https://www.packer.io/
     * Generate ssh key and add in key pairs of instance resource in AWS
     * Follow the deploy instructions to view an ami being generated
     
-### Deploy Instructions
+## Deploy Instructions
     * Generate VPC, subnet using cloudformation/terraform scripts
     * Use the generated subnet id in ami-vars.json
     * Add region to ami-vars.json
