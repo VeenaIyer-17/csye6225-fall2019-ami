@@ -45,6 +45,8 @@ technology used to automate building of Amazon Images.
        `java -jar warFile.war`
     * Use any REST tool like Postman to hit the enpoints of the application using the instance IP address
 
-    ami
-    
-
+## CICD
+    * Set up your credentials for circle ci user created in AWS in circle ci
+    * Set up the region, source ami image and subnet as circle ci inputs
+    * Set up the s3 bucket for codedeploy to upload artifacts in AWS
+    * On pushing your code circle ci reads config.yml file and builds the AMI
