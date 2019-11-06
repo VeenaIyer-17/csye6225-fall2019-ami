@@ -50,5 +50,4 @@ technology used to automate building of Amazon Images.
     * Set up the region, source ami image and subnet as circle ci inputs
     * Set up the s3 bucket for codedeploy to upload artifacts in AWS
     * On pushing your code circle ci reads config.yml file and builds the AMI
-    
-
+   
