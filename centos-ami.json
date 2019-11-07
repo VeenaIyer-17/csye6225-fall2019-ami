@@ -4,7 +4,7 @@
         "aws_secret_key": "",
         "aws_region": "",
         "aws_subnet_id": "",
-        "aws_source_ami": "",
+        "aws_source_ami": "ami-9887c6e7",
         "ssh_username": "centos"
     },
     "builders": [
