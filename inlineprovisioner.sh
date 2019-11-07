@@ -101,7 +101,7 @@ sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
     -c file:cloudwatch-config.json \
     -s
 sudo systemctl status amazon-cloudwatch-agent.service
-#comment
+
 # cd ~
 # sudo wget https://s3.amazonaws.com/configfileforcloudwatch/amazon-cloudwatch-agent.service
 # sudo cp amazon-cloudwatch-agent.service /etc/systemd/system/
